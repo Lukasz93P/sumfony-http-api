@@ -22,7 +22,12 @@ class RequestFormPostHandler
 
     private FormFactoryInterface $formFactory;
 
-    public function __construct(
+    public static function instance(FormFactoryInterface $formFactory): self
+    {
+        return new self(new PostDataService(), ApiResponderService::instance(), new FormErrorsExtractor(), $formFactory);
+    }
+
+    private function __construct(
         PostDataService $postDataService,
         ApiResponderService $apiResponder,
         FormErrorsExtractor $formErrorsExtractor,

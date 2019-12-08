@@ -14,6 +14,16 @@ class ApiResponderService
 
     private array $headers = [];
 
+
+    public static function instance(): self
+    {
+        return new self();
+    }
+
+    private function __construct()
+    {
+    }
+
     public function setCookie(string $name, string $value, int $expirationInSecond, array $rest = []): ApiResponderService
     {
         $this->cookies[] = new Cookie($name, $value, time() + $expirationInSecond, ...$rest);
