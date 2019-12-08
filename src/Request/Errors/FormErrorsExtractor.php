@@ -6,7 +6,7 @@ namespace Lukasz93P\SymfonyHttpApi\Request\Errors;
 
 use Symfony\Component\Form\FormInterface;
 
-class FormErrorsExtractor implements FormErrorsExtractorInterface
+class FormErrorsExtractor
 {
     public function extractErrors(FormInterface $form): array
     {

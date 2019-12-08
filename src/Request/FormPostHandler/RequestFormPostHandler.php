@@ -4,28 +4,28 @@ declare(strict_types=1);
 namespace Lukasz93P\SymfonyHttpApi\Request\FormPostHandler;
 
 
-use Lukasz93P\SymfonyHttpApi\Request\Errors\FormErrorsExtractorInterface;
-use Lukasz93P\SymfonyHttpApi\Request\PostData\PostDataServiceInterface;
-use Lukasz93P\SymfonyHttpApi\Response\Responder\ApiResponderServiceInterface;
+use Lukasz93P\SymfonyHttpApi\Request\Errors\FormErrorsExtractor;
+use Lukasz93P\SymfonyHttpApi\Request\PostData\PostDataService;
+use Lukasz93P\SymfonyHttpApi\Response\Responder\ApiResponderService;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class RequestFormPostHandler implements RequestFormPostHandlerInterface
+class RequestFormPostHandler
 {
-    private PostDataServiceInterface $postDataService;
+    private PostDataService $postDataService;
 
-    private ApiResponderServiceInterface $apiResponder;
+    private ApiResponderService $apiResponder;
 
-    private FormErrorsExtractorInterface $formErrorsExtractor;
+    private FormErrorsExtractor $formErrorsExtractor;
 
     private FormFactoryInterface $formFactory;
 
     public function __construct(
-        PostDataServiceInterface $postDataService,
-        ApiResponderServiceInterface $apiResponder,
-        FormErrorsExtractorInterface $formErrorsExtractor,
+        PostDataService $postDataService,
+        ApiResponderService $apiResponder,
+        FormErrorsExtractor $formErrorsExtractor,
         FormFactoryInterface $formFactory
     ) {
         $this->postDataService = $postDataService;

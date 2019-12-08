@@ -8,20 +8,20 @@ use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
-class ApiResponderService implements ApiResponderServiceInterface
+class ApiResponderService
 {
     private array $cookies = [];
 
     private array $headers = [];
 
-    public function setCookie(string $name, string $value, int $expirationInSecond, array $rest = []): ApiResponderServiceInterface
+    public function setCookie(string $name, string $value, int $expirationInSecond, array $rest = []): ApiResponderService
     {
         $this->cookies[] = new Cookie($name, $value, time() + $expirationInSecond, ...$rest);
 
         return $this;
     }
 
-    public function setHeader(string $key, string $value): ApiResponderServiceInterface
+    public function setHeader(string $key, string $value): ApiResponderService
     {
         $this->headers[] = [$key, $value];
 

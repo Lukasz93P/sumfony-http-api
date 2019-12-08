@@ -6,7 +6,7 @@ namespace Lukasz93P\SymfonyHttpApi\Request\PostData;
 
 use Symfony\Component\HttpFoundation\Request;
 
-class ApiPostDataService implements PostDataServiceInterface
+class PostDataService
 {
     public function getPostedData(Request $request): array
     {
