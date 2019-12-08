@@ -1,0 +1,22 @@
+{
+    "name": "lukasz93p/symfony-http-api",
+    "description": "Package which helps processing forms using json with symfony.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lukasz93P",
+            "email": "lukasz9.3@interia.pl"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Lukasz93P\\SymfonyHttpApi\\": "src/"
+        }
+    },
+    "require": {
+        "symfony/form": "^5.0",
+        "symfony/http-foundation": "^5.0",
+        "ext-json": "*"
+    }
+}
