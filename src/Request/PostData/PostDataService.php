@@ -10,9 +10,11 @@ class PostDataService
 {
     public function getPostedData(Request $request): array
     {
-        $jsonData = json_decode($request->getContent() ?? '[]', true, 512, JSON_THROW_ON_ERROR) ?? [];
+        $postData = $request->getContent()
+            ? json_decode($request->getContent(), true, 512, JSON_THROW_ON_ERROR)
+            : $request->request->all();
 
-        return array_merge($jsonData, $request->files->all());
+        return array_merge($postData, $request->files->all());
     }
 
 }
