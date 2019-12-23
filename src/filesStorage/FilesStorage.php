@@ -5,18 +5,18 @@ declare(strict_types=1);
 namespace Lukasz93P\SymfonyHttpApi\filesStorage;
 
 
-use App\application\shared\filesStorage\exceptions\FileRetrievingFailed;
-use App\application\shared\filesStorage\exceptions\FileAddingFailed;
+use Lukasz93P\SymfonyHttpApi\filesStorage\exceptions\FileAddingFailed;
+use Lukasz93P\SymfonyHttpApi\filesStorage\exceptions\FileRetrievingFailed;
 
 interface FilesStorage
 {
     /**
      * @param FileToStore $fileToStore
      * @param string $destinationPath
-     * @return string
+     * @return FileAddingResult
      * @throws FileAddingFailed
      */
-    public function add(FileToStore $fileToStore, string $destinationPath): string;
+    public function add(FileToStore $fileToStore, string $destinationPath): FileAddingResult;
 
     /**
      * @param string $filePath
