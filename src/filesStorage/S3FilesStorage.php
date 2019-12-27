@@ -34,7 +34,7 @@ class S3FilesStorage implements FilesStorage
         );
     }
 
-    public function add(FileToStore $fileToStore, string $destinationPath): string
+    public function add(FileToStore $fileToStore, string $destinationPath): FileAddingResult
     {
         try {
             (new MultipartUploader(
@@ -44,7 +44,7 @@ class S3FilesStorage implements FilesStorage
                 ]
             ))->upload();
 
-            return $destinationPath;
+            return FileAddingResult::fromNewPath($destinationPath);
         } catch (Exception $exception) {
             throw FileAddingFailed::fromFilePathAndReason($fileToStore->getPath(), $exception);
         }

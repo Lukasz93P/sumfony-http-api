@@ -19,7 +19,7 @@ class LocalFilesStorage implements FilesStorage
         $this->destinationDirectory = $destinationDirectory;
     }
 
-    public function add(FileToStore $fileToStore, string $destinationPath): string
+    public function add(FileToStore $fileToStore, string $destinationPath): FileAddingResult
     {
         $currentFilePath = $fileToStore->getPath();
         $fileExtension = pathinfo($fileToStore->getName(), PATHINFO_EXTENSION);
@@ -28,7 +28,7 @@ class LocalFilesStorage implements FilesStorage
             throw FileAddingFailed::fromFilePathAndReason($currentFilePath, new RuntimeException('Cannot move file'));
         }
 
-        return $newPath;
+        return FileAddingResult::fromNewPath($newPath);
     }
 
     public function get(string $filePath): StoredFile
