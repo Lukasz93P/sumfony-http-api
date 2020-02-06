@@ -16,10 +16,10 @@
     },
     "require": {
         "php": ">=7.4.0",
-        "symfony/form": "4.3.*",
-        "symfony/http-foundation": "4.3.*",
         "ext-json": "*",
         "ext-fileinfo": "*",
-        "aws/aws-sdk-php": "^3.130"
+        "aws/aws-sdk-php": "^3.130",
+        "symfony/form": "^5.0",
+        "symfony/http-foundation": "^5.0"
     }
 }
